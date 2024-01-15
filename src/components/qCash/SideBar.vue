@@ -1,0 +1,56 @@
+<template>
+  <div class="sidebar">
+    <div class="brand-logo">
+      <router-link to="/"
+        ><img src="../../assets/CintaBundaLogo.png" alt="" />
+      </router-link>
+    </div>
+    <div class="menu">
+      <ul>
+        <li>
+          <router-link
+            to="/"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Home"
+            :class="active === 1 && 'active'"
+          >
+            <span><i class="icofont-ui-home"></i></span>
+          </router-link>
+        </li>
+        <li>
+          <router-link
+            to="trade"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Trade"
+            :class="active === 2 && 'active'"
+          >
+            <span><i class="icofont-stack-exchange"></i></span>
+          </router-link>
+        </li>
+        <li class="logout">
+          <router-link
+            to="signin"
+            data-toggle="tooltip"
+            data-placement="right"
+            title="Signout"
+          >
+            <span><i class="icofont-power"></i></span>
+          </router-link>
+        </li>
+      </ul>
+
+      <p class="copyright">&#169; <router-link to="#" style="font-size: 10px;">NustraStudio</router-link></p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Sidebar",
+  props: {
+    active: Number,
+  },
+};
+</script>

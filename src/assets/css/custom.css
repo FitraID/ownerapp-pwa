@@ -1,0 +1,31 @@
+.c-pointer {
+  cursor: pointer;
+}
+td {
+  border-top: 0px !important;
+}
+.i-false::after {
+  display: none !important;
+}
+.no-bg {
+  background: none;
+  color: unset;
+  border: none;
+}
+.landing_copyright {
+  color: unset !important;
+}
+.landing_copyright p a {
+  /* color: #556ee6 !important; */
+  color: #00A056 !important;
+  font-size: unset !important;
+}
+.dropdown-menu.dropdown-menu-right.notification-list.mt-3.show {
+  position: absolute;
+  right: 1rem;
+}
+
+.dropdown-menu.dropdown-menu-right.mt-3.show {
+  position: absolute;
+  right: 0rem;
+}
