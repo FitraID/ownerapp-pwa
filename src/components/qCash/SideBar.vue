@@ -9,7 +9,7 @@
       <ul>
         <li>
           <router-link
-            to="/"
+            to="home"
             data-toggle="tooltip"
             data-placement="right"
             title="Home"
@@ -31,7 +31,7 @@
         </li>
         <li class="logout">
           <router-link
-            to="signin"
+            to="/"
             data-toggle="tooltip"
             data-placement="right"
             title="Signout"
