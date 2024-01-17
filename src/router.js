@@ -8,7 +8,7 @@ import VerifyCode from "./views/auth/VerifyCode";
 import VerifyEmail from "./views/auth/VerifyEmail";
 import VerifyPhone from "./views/auth/VerifyPhone";
 // DashBoard
-import Index from "./views/dashboard/Index";
+// import Index from "./views/dashboard/Index";
 import Price from "./views/dashboard/Price";
 import PriceDetails from "./views/dashboard/PriceDetails";
 import Profile from "./views/dashboard/Profile";
@@ -43,8 +43,8 @@ const routes = [
   // Dashboard
   {
     path: "/",
-    name: "Index",
-    component: Index,
+    name: "login",
+    component: Signin,
   },
   {
     path: "/price",
@@ -112,11 +112,7 @@ const routes = [
     name: "Fees",
     component: Fees,
   },
-  {
-    path: "/signin",
-    name: "Signin",
-    component: Signin,
-  },
+  
   {
     path: "/signup",
     name: "Signup",
