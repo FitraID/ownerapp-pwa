@@ -6,14 +6,15 @@
           <div class="header-content">
             <div class="header-left">
               <div class="brand-logo">
-                <router-link to="/">
+                <router-link to="/home">
                   <img src="../../assets/cintabunda.png" alt="" />
                   <span>Cinta Bunda</span>
                 </router-link>
               </div>
             </div>
             <div class="header-right">
-              <div
+              <!-- Notification -->
+              <!-- <div
                 class="notification dropdown"
                 @click="activeDropDown('notification')"
                 :class="active_ === 'notification' && 'show'"
@@ -81,7 +82,7 @@
                     ></router-link>
                   </div>
                 </div>
-              </div>
+              </div> -->
 
               <div
                 class="profile_log dropdown"
@@ -90,7 +91,7 @@
               >
                 <div class="user" data-toggle="dropdown">
                   <span class="thumb"
-                    ><img src="../../assets/images/profile/2.png" alt=""
+                    ><img src="../../assets/user.png" alt=""
                   /></span>
                   <span class="arrow"><i class="icofont-angle-down"></i></span>
                 </div>
@@ -101,26 +102,16 @@
                   <div class="user-email">
                     <div class="user">
                       <span class="thumb"
-                        ><img src="../../assets/images/profile/2.png" alt=""
+                        ><img src="../../assets/user.png" alt=""
                       /></span>
                       <div class="user-info">
-                        <h5>Jannatul Maowa</h5>
-                        <span>Qash.inc@gmail.com</span>
+                        <h5>Bu Siti</h5>
+                        <span>08421852818</span>
                       </div>
                     </div>
                   </div>
-
-                  <div class="user-balance">
-                    <div class="available">
-                      <p>Available</p>
-                      <span>0.00 BTC</span>
-                    </div>
-                    <div class="total">
-                      <p>Total</p>
-                      <span>0.00 USD</span>
-                    </div>
-                  </div>
-                  <router-link to="profile" class="dropdown-item">
+                  
+                  <!-- <router-link to="profile" class="dropdown-item">
                     <i class="icofont-ui-user"></i>Profile
                   </router-link>
                   <router-link to="wallet" class="dropdown-item">
@@ -134,8 +125,8 @@
                   </router-link>
                   <router-link to="lock" class="dropdown-item">
                     <i class="icofont-lock"></i>Lock
-                  </router-link>
-                  <router-link to="signin" class="dropdown-item logout">
+                  </router-link> -->
+                  <router-link to="/" class="dropdown-item logout">
                     <i class="icofont-logout"></i> Logout
                   </router-link>
                 </div>
