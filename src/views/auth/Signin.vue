@@ -1,5 +1,5 @@
 <template>
-  <div id="main-wrapper" class="show">
+  <div id="main-wrapper" class="show py-0">
     <div class="authincation section-padding">
       <div class="container h-100">
         <div class="row justify-content-center h-100 align-items-center">
@@ -11,10 +11,10 @@
                   method="post"
                   name="myform"
                   class="signin_validate row g-3"
-                  action="otp-2"
                   @submit.prevent="onSubmit"
                 >
                   <div class="col-12">
+                    <span class="fw-bold">Username :</span>
                     <input
                       type="username"
                       class="form-control"
@@ -23,17 +23,20 @@
                     />
                   </div>
                   <div class="col-12">
+                    <span class="fw-bold">Password :</span>
                     <input
                       type="password"
                       class="form-control"
                       placeholder="Masukan Password..."
                       name="password"
                     />
+                    <input class="form-check-input mt-2 text-success" type="checkbox" value="" id="chkRemem">
+                    <label for="chkRemem" class="mt-1 ms-1">Ingat login Saya</label>
                   </div>
                   
                   <div class="text-center">
                     <button type="submit" class="btn btn-primarys btn-block">
-                      Masuk 
+                      <a href="" class="text-light" style="text-decoration: none;">Masuk</a> 
                     </button>
                   </div>
                 </form>
@@ -53,7 +56,7 @@ export default {
   components: { AuthHeader },
   methods: {
     onSubmit() {
-      this.$router.push("/otp-2");
+      this.$router.push("/home");
     },
   },
 };
