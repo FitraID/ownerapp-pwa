@@ -1,10 +1,5 @@
 <template>
   <div class="sidebar">
-    <div class="brand-logo">
-      <router-link to="/"
-        ><img src="../../assets/CintaBundaLogo.png" alt="" />
-      </router-link>
-    </div>
     <div class="menu">
       <ul>
         <li>
