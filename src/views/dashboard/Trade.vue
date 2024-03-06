@@ -1,10 +1,8 @@
-<template>
+<template >
   <layout :active="2">
     <div class="content-body">
       <div class="container">
-        <div class="row">
-          <listcabang />
-        </div>
+        <listcabang />
       </div>
     </div>
     <!-- Modal -->

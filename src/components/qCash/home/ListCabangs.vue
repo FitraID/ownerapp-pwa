@@ -1,8 +1,7 @@
 <template>
-<div id="list">
+<div id="list" class="row row-cols-lg-3 ">
     <div v-for="item in cabang" :key="item.id">
-        <div class="col-xxl-3 col-xl-3 col-lg-6 col-md-6 col-sm-6" >
-            <div class="wallet-widget card">
+        <div class="wallet-widget card col">
                 <h2>{{ item.nama }}</h2> 
                 <h5>{{ item.alamat   }}</h5>
                 <b-button
@@ -12,7 +11,6 @@
                         Cek Cabangs
                   </b-button>
             </div>
-        </div>
     </div>
 </div>
 
