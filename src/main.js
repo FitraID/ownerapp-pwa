@@ -11,6 +11,7 @@ import "./assets/css/style.css";
 import router from "./router.js";
 import axios from 'axios';
 
+
 Vue.config.productionTip = false;
 VueClipboard.config.autoSetContainer = true;
 

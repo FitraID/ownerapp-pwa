@@ -27,23 +27,23 @@
                     >
                       <div class="chart-price-value">
                         <span>Penjualan Hari ini</span>
-                        <h5>20</h5>
+                        <h5>20 pcs</h5>
                       </div>
                     </div>
                     <div
                       class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-6 mb-2"
                     >
                       <div class="chart-price-value">
-                        <span>24hr Volume</span>
-                        <h5>56.3 BTC</h5>
+                        <span>Omzet Hari ini</span> 
+                        <h5>Rp.5.000.000</h5>
                       </div>
                     </div>
                     <div
                       class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-6 mb-2"
                     >
                       <div class="chart-price-value">
-                        <span>All Time High</span>
-                        <h5>$236,368.00</h5>
+                        <span>Omzet minggu ini</span>
+                        <h5>Rp.32.000.000</h5>
                       </div>
                     </div>
                   </div>

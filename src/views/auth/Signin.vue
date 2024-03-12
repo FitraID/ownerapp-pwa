@@ -8,7 +8,7 @@
             <div class="auth-form card">
               <div class="card-body">
                 <form
-                  method="post"
+                  method="POST"
                   name="myform"
                   class="signin_validate row g-3"
                   @submit.prevent="onSubmit"
@@ -19,7 +19,8 @@
                       type="username"
                       class="form-control"
                       placeholder="Masukan Username...."
-                      name="username"
+                      name="nohp"
+                      v-model="nohp"
                     />
                   </div>
                   <div class="col-12">
@@ -29,6 +30,7 @@
                       class="form-control"
                       placeholder="Masukan Password..."
                       name="password"
+                      v-model="password"
                     />
                     <input class="form-check-input mt-2 text-success" type="checkbox" value="" id="chkRemem">
                     <label for="chkRemem" class="mt-1 ms-1">Ingat login Saya</label>
@@ -51,12 +53,25 @@
 
 <script>
 import AuthHeader from "../../components/qCash/AuthHeader.vue";
+import axios from 'axios';
 
 export default {
+  data() {
+    return {
+      nohp: '',
+      password: ''
+    }
+  },
   components: { AuthHeader },
   methods: {
-    onSubmit() {
-      this.$router.push("/home");
+     onSubmit() {
+      const response = axios.post('https://inventory.cinta-bunda.com/api/member/login', {
+        nohp: this.nohp,
+        password: this.password
+      });
+
+      console.log(response);
+      //this.$router.push("/home");
     },
   },
 };
