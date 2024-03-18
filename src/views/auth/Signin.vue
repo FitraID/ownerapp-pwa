@@ -53,7 +53,6 @@
 
 <script>
 import AuthHeader from "../../components/qCash/AuthHeader.vue";
-import axios from 'axios';
 
 export default {
   data() {
@@ -65,14 +64,36 @@ export default {
   components: { AuthHeader },
   methods: {
      onSubmit() {
-      const response = axios.post('https://inventory.cinta-bunda.com/api/member/login', {
-        nohp: this.nohp,
+      const body = {
+        nomer_hp: this.nohp,
         password: this.password
-      });
+      }
 
-      console.log(response);
-      //this.$router.push("/home");
-    },
+      const response = fetch(`${this.url}member/login`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json' // Specify content type as JSON
+        },
+        body: JSON.stringify(body)
+      })
+      .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse response JSON
+      })
+      .then(data => {
+          console.log(data); // Handle response data here
+          // Redirect to home or perform further actions based on response
+          // this.$router.push("/home");
+      })
+      .catch(error => {
+          console.error('There was a problem with the fetch operation:', error);
+      });
+        console.log(response);
+        console.log(body);
+        //this.$router.push("/home");
+      },
   },
 };
 </script>

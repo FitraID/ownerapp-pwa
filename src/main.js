@@ -11,28 +11,27 @@ import "./assets/css/style.css";
 import router from "./router.js";
 import axios from 'axios';
 
-
-Vue.config.productionTip = false;
-VueClipboard.config.autoSetContainer = true;
-
-Vue.use(VueClipboard);
-Vue.use(BootstrapVue);
-Vue.use(PerfectScrollbar);
-
-const globalVariable = {  
-  data(){
-    return {
-      urlcloud: 'https://cloudinventory.nustrastudio.com/api/'
-    }
-  }
-}
-
-Vue.prototype.$http-axios 
-Vue.mixin(globalVariable);
-
-axios.defaults.baseURL ='https://cloudinventory.nustrastudio.com/api/'
-
 new Vue({
   router,
   render: (h) => h(App),
 }).$mount("#app");
+
+Vue.config.productionTip = false;
+VueClipboard.config.autoSetContainer = true;
+
+Vue.mixin({
+  data() {
+    return {
+      urlcloud: 'https://cloudinventory.nustrastudio.com/api/'
+    };
+  }
+});
+
+Vue.prototype.url = 'https://inventory.cinta-bunda.com/api/'
+Vue.use(VueClipboard);
+Vue.use(BootstrapVue);
+Vue.use(PerfectScrollbar);
+
+Vue.prototype.$http-axios   
+
+axios.defaults.baseURL ='https://cloudinventory.nustrastudio.com/api/'
