@@ -22,7 +22,7 @@ VueClipboard.config.autoSetContainer = true;
 Vue.mixin({
   data() {
     return {
-      urlcloud: 'https://cloudinventory.nustrastudio.com/api/'
+      urlcloud: 'https://inventory.cinta-bunda.com/api/'
     };
   }
 });
@@ -34,4 +34,4 @@ Vue.use(PerfectScrollbar);
 
 Vue.prototype.$http-axios   
 
-axios.defaults.baseURL ='https://cloudinventory.nustrastudio.com/api/'
+axios.defaults.baseURL ='https://inventory.cinta-bunda.com/api/'
