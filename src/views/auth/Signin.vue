@@ -53,6 +53,11 @@
 <script>
 import AuthHeader from "../../components/qCash/AuthHeader.vue";
 
+var csrf = '{{csrf_token()}}';
+var formdata = new FormData();
+
+formdata.append('_token', csrf);
+
 export default {
   data() {
     return {
@@ -67,7 +72,7 @@ export default {
         nomer_hp: this.nohp,
         password: this.password
       }
-      const response = fetch(`${this.url}member/login`, {
+      const response = fetch(`${this.url}member/login`, formdata ,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' // Specify content type as JSON
@@ -90,7 +95,7 @@ export default {
           console.error('There was a problem with the fetch operation:', error);
       });
         console.log(response);
-        console.log("test");
+        console.log("test1");
         //this.$router.push("/home");
       },
   },
