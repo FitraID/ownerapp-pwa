@@ -35,7 +35,6 @@
                     <input class="form-check-input mt-2 text-success" type="checkbox" value="" id="chkRemem">
                     <label for="chkRemem" class="mt-1 ms-1">Ingat login Saya</label>
                   </div>
-                  
                   <div class="text-center">
                     <button type="submit" class="btn btn-primarys btn-block">
                       <a href="" class="text-light" style="text-decoration: none;">Masuk</a> 
