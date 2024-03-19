@@ -90,7 +90,7 @@ export default {
           console.error('There was a problem with the fetch operation:', error);
       });
         console.log(response);
-        console.log(body);
+        console.log("test");
         //this.$router.push("/home");
       },
   },
