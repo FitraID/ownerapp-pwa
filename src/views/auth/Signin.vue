@@ -68,12 +68,12 @@ export default {
         nomer_hp: this.nohp,
         password: this.password
       }
-
       const response = fetch(`${this.url}member/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json' // Specify content type as JSON
         },
+        mode: 'no-cors',
         body: JSON.stringify(body)
       })
       .then(response => {
