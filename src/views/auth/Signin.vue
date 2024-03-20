@@ -14,11 +14,11 @@
                   @submit.prevent="onSubmit"
                 >
                   <div class="col-12">
-                    <span class="fw-bold">Username :</span>
+                    <span class="fw-bold">No Telephone:</span>
                     <input
                       type="username"
                       class="form-control"
-                      placeholder="Masukan Username...."
+                      placeholder="Masukan Nomer HP..."
                       name="nohp"
                       v-model="nohp"
                     />
@@ -52,11 +52,12 @@
 
 <script>
 import AuthHeader from "../../components/qCash/AuthHeader.vue";
+import axios from 'axios';
 
-var csrf = '{{csrf_token()}}';
-var formdata = new FormData();
+// var csrf = '{{csrf_token()}}';
+// var formdata = new FormData();
 
-formdata.append('_token', csrf);
+// formdata.append('_token', csrf);
 
 export default {
   data() {
@@ -71,32 +72,19 @@ export default {
       const body = {
         nomer_hp: this.nohp,
         password: this.password
-      }
-      const response = fetch(`${this.url}member/login`, formdata ,{
-        method: 'POST',
+      } 
+      const response = axios.post(`${this.url}member/loginowner`, body, {
         headers: {
-            'Content-Type': 'application/json' // Specify content type as JSON
-        },
-        mode: 'no-cors',
-        body: JSON.stringify(body)
-      })
-      .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+          "Content-Type": "application/json"
         }
-        return response.json(); // Parse response JSON
       })
-      .then(data => {
-          console.log(data); // Handle response data here
-          // Redirect to home or perform further actions based on response
-          // this.$router.push("/home");
+      .then((result)=>{
+          console.log(result)
+          console.log(response)
       })
-      .catch(error => {
-          console.error('There was a problem with the fetch operation:', error);
+      .catch((error) => {
+          console.log(error)
       });
-        console.log(response);
-        console.log("test1");
-        //this.$router.push("/home");
       },
   },
 };
