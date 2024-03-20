@@ -73,7 +73,7 @@ export default {
         nomer_hp: this.nohp,
         password: this.password
       } 
-      const response = axios.post(`${this.url}member/loginowner`, body, {
+      const response = axios.post(`${this.url}owner/login`, body, {
         headers: {
           "Content-Type": "application/json"
         }
