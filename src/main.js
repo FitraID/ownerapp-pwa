@@ -10,8 +10,11 @@ import "./assets/css/custom.css";
 import "./assets/css/style.css";
 import router from "./router.js";
 import axios from 'axios';
+import ApexCharts from "vue-apexcharts";
+import store from './store';
 
 new Vue({
+  store,
   router,
   render: (h) => h(App),
 }).$mount("#app");
@@ -28,10 +31,11 @@ Vue.mixin({
 });
 
 Vue.prototype.url = 'https://inventory.cinta-bunda.com/api/'
+Vue.use(ApexCharts);
 Vue.use(VueClipboard);
 Vue.use(BootstrapVue);
 Vue.use(PerfectScrollbar);
 
 Vue.prototype.$http-axios   
 
-axios.defaults.baseURL ='https://inventory.cinta-bunda.com/api/'
+axios.defaults.baseURL ='http://inventory.cinta-bunda.com/api/'

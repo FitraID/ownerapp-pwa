@@ -9,7 +9,6 @@
     </tbody>
 </template>
 <script>
-import axios from 'axios';
 export default {
     data() {
         return {
@@ -33,11 +32,15 @@ export default {
     },
     methods: {
         getBarang() {
-            axios
-            .get(this.urlcloud + "owner/top-10")
-            .then((response) => {
-                this.jsonData = response.data;
-            });
+            fetch(`${this.url}owner/top-10?access_token=${localStorage.getItem('access_token')}`)
+                .then(response => response.json())
+                .then(data => {
+                    this.jsonData = data
+                    console.log("top-10",data);
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
         },
         sortBy(key) {
             this.sortKey = key;

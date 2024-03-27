@@ -30,6 +30,7 @@
             data-toggle="tooltip"
             data-placement="right"
             title="Signout"
+            @click="clearLog"
           >
             <span><i class="icofont-power"></i></span>
           </router-link>
@@ -47,5 +48,10 @@ export default {
   props: {
     active: Number,
   },
+  methods: {
+    clearLog() {
+      localStorage.clear();
+    }
+  }
 };
 </script>

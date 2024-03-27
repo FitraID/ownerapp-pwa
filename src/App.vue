@@ -16,7 +16,7 @@ export default {
       isLoading: true,
       time: 100,
       show: 1,
-      appUrl : 'https://cloudinventory.nustrastudio.com/api/',
+      appUrl : 'https://inventory.cinta-bunda.com/api/',
     };
   },
   mounted() {

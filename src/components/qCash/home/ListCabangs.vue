@@ -17,9 +17,6 @@
 </template>
 
 <script>
-//API masukan Ke button list
-//https://cloudinventory.nustrastudio.com/api/
-import axios from 'axios';
 export default {
     data() {
         return {
@@ -28,11 +25,11 @@ export default {
     },
     methods : {
         getList() {
-            axios
-                .get('https://cloudinventory.nustrastudio.com/api/owner/listcabang')
-                .then((Response) => {
-                    console.log(Response.data)
-                    this.cabang = Response.data
+            fetch(`${this.url}owner/listcabang?access_token=${localStorage.getItem('access_token')}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    this.cabang = data;
                 })
                 .catch((error) => {
                     console.log(error)

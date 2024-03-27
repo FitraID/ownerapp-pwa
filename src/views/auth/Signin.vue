@@ -51,13 +51,8 @@
 </template>
 
 <script>
+import router from "@/router";
 import AuthHeader from "../../components/qCash/AuthHeader.vue";
-import axios from 'axios';
-
-// var csrf = '{{csrf_token()}}';
-// var formdata = new FormData();
-
-// formdata.append('_token', csrf);
 
 export default {
   data() {
@@ -68,24 +63,40 @@ export default {
   },
   components: { AuthHeader },
   methods: {
-     onSubmit() {
-      const body = {
-        nomer_hp: this.nohp,
-        password: this.password
-      } 
-      const response = axios.post(`${this.url}owner/login`, body, {
-        headers: {
-          "Content-Type": "application/json"
+    onSubmit() {
+      let formdata = new FormData();
+      formdata.append("nomor_hp", this.nohp);
+      formdata.append("password", this.password);
+
+      if(this.nohp === "" || this.password === "") {
+        alert("Lengkapi Form");
+      }
+      else {
+        fetch(`${this.url}owner/login`,{
+          method: "POST",
+          body: formdata,
+        })
+        .then(function(response) {
+          if(response.status === 401 || response.status === 500) {
+            router.push("/")
+          }
+          else {
+            return response.json();
+          }
+        })
+        .then(function(data) {
+          if(data.success === true) {
+            localStorage.setItem('access_token', data.access_token);
+            router.push('home');
+          } 
+        })
+        .catch(error => {
+          if(error.status !== "401") {
+            console.log(error);
+          }
+        });
         }
-      })
-      .then((result)=>{
-          console.log(result)
-          console.log(response)
-      })
-      .catch((error) => {
-          console.log(error)
-      });
-      },
+      }
   },
 };
 </script>
