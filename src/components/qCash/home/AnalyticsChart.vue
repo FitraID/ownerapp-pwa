@@ -68,17 +68,28 @@ export default {
       fetch(`${this.url}owner/home?access_token=${localStorage.getItem('access_token')}`, {method: "GET"})
         .then(response => response.json())
         .then(data => {
+          console.log(data);
           var arrStok = [];
           var arrDate = [];
 
           for(const date in data) {
             let totalStok = 0;
             for(const index in data[date]) {
-                let num = parseInt(data[date][index], 10)
+                let num = parseInt(index, 10)
                 totalStok += num;
             }
+
+            const formatter = new Intl.DateTimeFormat('en', { month: 'short' });
+
+            const tgl = new Date(date);
+
+            const bulan = formatter.format(tgl);
+            const hari = tgl.getDate();
+
+            const tanggal = `${bulan}-${hari}`;
+
             arrStok.push(totalStok);
-            arrDate.push(date);
+            arrDate.push(tanggal);
           }
           this.series = [{
             name: 'terjual',

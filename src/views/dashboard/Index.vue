@@ -18,32 +18,33 @@
                       class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-6 mb-2"
                     >
                       <div class="chart-price-value">
-                        <span>Penjualan minggu ini</span>
-                        <h5>120 pcs</h5>
+                        <span>Barang terjual <br> Hari ini</span>
+                        <h5 class="text-success">
+                        {{ this.stoktoday }} pcs</h5>
                       </div>
                     </div>
                     <div
                       class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-6 mb-2"
                     >
                       <div class="chart-price-value">
-                        <span>Penjualan Hari ini</span>
-                        <h5>20 pcs</h5>
+                        <span>Barang Terjual <br> Minggu ini</span>
+                        <h5 class="text-success">{{ this.stokminggu }} pcs</h5>
                       </div>
                     </div>
                     <div
                       class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-6 mb-2"
                     >
                       <div class="chart-price-value">
-                        <span>Omzet Hari ini</span> 
-                        <h5>Rp.5.000.000</h5>
+                        <span>Omzet <br> Hari ini</span> 
+                        <h5 class="text-success">Rp. {{ this.salehari }}</h5>
                       </div>
                     </div>
                     <div
                       class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-6 mb-2"
                     >
                       <div class="chart-price-value">
-                        <span>Omzet minggu ini</span>
-                        <h5>Rp.32.000.000</h5>
+                        <span>Omzet <br> minggu ini</span>
+                        <h5 class="text-success">Rp. {{ this.omzetweek }}</h5>
                       </div>
                     </div>
                   </div>
@@ -92,8 +93,14 @@ export default {
   data() {
     return {
       message: "Nustra Studio",
-      minggunini: tableTop.sortKey,
+      stoktoday: 0,
+      stokminggu: 0,
+      salehari: "",
+      omzetweek: "",
     };
+  },
+  computed: {
+    dataitem() {return this.data()}
   },
   methods: {
     doCopy: function () {
@@ -106,6 +113,44 @@ export default {
         }
       );
     },
+    getData() {
+      fetch(`${this.url}owner/home?access_token=${localStorage.getItem('access_token')}`, {method: "GET"})
+        .then(response => response.json())
+        .then(data => {
+          const date = new Date().toISOString().split('T')[0];
+          let stokHari = 0;
+          let stkMinggu = 0;
+          let stokharionly = 0;
+          let hjHari = 0;
+          let hjWeek = 0;
+          let saleweek = 0;
+          for(const tgl in data) {
+            if(tgl === date) {
+              for(const stok1 in data[tgl]) {
+                let stk = parseInt(stok1, 10);
+                  stokharionly += stk;  
+                  hjHari += parseInt(data[tgl][stok1], 10);
+                  this.salehari = hjHari.toLocaleString();
+              }
+              this.stoktoday = stokharionly;
+            }
+            for(const stok in data[tgl]) {
+              let stk = parseInt(stok, 10);
+              stokHari += stk;
+              hjWeek += parseInt(data[tgl][stok]);
+              // console.log(stokHari);
+            }
+            // console.log(tgl, date);
+            saleweek = hjWeek;
+            stkMinggu = stokHari;
+          }
+          this.omzetweek = saleweek.toLocaleString();
+          this.stokminggu = stkMinggu;
+        })
+    }
   },
+  mounted() {
+    this.getData();
+  }
 };
 </script>

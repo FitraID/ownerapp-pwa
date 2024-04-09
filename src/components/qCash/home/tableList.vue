@@ -36,7 +36,7 @@ export default {
                 .then(response => response.json())
                 .then(data => {
                     this.jsonData = data
-                    console.log("top-10",data);
+                    // console.log("top-10",data);
                 })
                 .catch((error) => {
                     console.log(error)
