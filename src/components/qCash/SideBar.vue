@@ -20,6 +20,7 @@
             data-placement="right"
             title="Trade"
             :class="active === 2 && 'active'"
+            @click="clearTable"
           >
             <span><i class="icofont-stack-exchange"></i></span>
           </router-link>
@@ -51,6 +52,9 @@ export default {
   methods: {
     clearLog() {
       localStorage.clear();
+    },
+    clearTable() {
+      console.log("A");
     }
   }
 };

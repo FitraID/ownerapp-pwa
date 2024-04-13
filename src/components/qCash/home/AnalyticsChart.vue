@@ -59,16 +59,27 @@ export default {
       },
       series: [{
         name: 'stok',
-        data: [1,2]
+        data: [0,0]
       }],
     };
   },
   methods: {
     getHomeList() {
-      fetch(`${this.url}owner/home?access_token=${localStorage.getItem('access_token')}`, {method: "GET"})
+      let urlAll = "";
+
+      console.log(localStorage.getItem('table'));
+
+      if(localStorage.getItem('table') === null) {
+        urlAll = `${this.url}owner/home?access_token=${localStorage.getItem('access_token')}`
+      }
+      else {
+        urlAll = `${this.url}owner/laporan?access_token=${localStorage.getItem('access_token')}&database=${localStorage.getItem('table')}`;
+      }
+ 
+      fetch(urlAll, {method: "GET"})
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          // console.log(data);
           var arrStok = [];
           var arrDate = [];
 

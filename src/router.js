@@ -9,6 +9,7 @@ import VerifyEmail from "./views/auth/VerifyEmail";
 import VerifyPhone from "./views/auth/VerifyPhone";
 // DashBoard
 import Index from "./views/dashboard/Index";
+import cabang from "./views/dashboard/cabangPage";
 import Price from "./views/dashboard/Price";
 import PriceDetails from "./views/dashboard/PriceDetails";
 import Profile from "./views/dashboard/Profile";
@@ -18,6 +19,7 @@ import Application from "./views/dashboard/settings/Application";
 import Fees from "./views/dashboard/settings/Fees";
 import Payment from "./views/dashboard/settings/Payment";
 import Privacy from "./views/dashboard/settings/Privacy";
+import listCB from "./components/qCash/home/ListCabangs";
 // setting
 import SettingProfile from "./views/dashboard/settings/ProfileEdit";
 import Security from "./views/dashboard/settings/Security";
@@ -36,6 +38,11 @@ const routes = [
     component: Demo,
   },
   {
+    path: "/cabang",
+    name: "laporan",
+    component: cabang,
+  },
+  {
     path: "/intro",
     name: "Intro",
     component: Intro,
@@ -44,6 +51,11 @@ const routes = [
   {
     path: "/",
     name: "login",
+    component: Signin,
+  },
+  {
+    path: "/login",
+    name: "login2",
     component: Signin,
   },
   {
@@ -65,6 +77,11 @@ const routes = [
     path: "/trade",
     name: "Trade",
     component: Trade,
+  },
+  {
+    path: "listCB",
+    name: "List",
+    component: listCB,
   },
   {
     path: "/wallet",

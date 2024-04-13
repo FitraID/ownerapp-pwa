@@ -55,7 +55,7 @@
           <div class="col-xxl-8 col-xl-8">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">Top 10 Barang All Cabangs</h4>
+                <h4 class="card-title">Top 10 Barang Semua Cabangs</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive transaction-table">
@@ -95,8 +95,8 @@ export default {
       message: "Nustra Studio",
       stoktoday: 0,
       stokminggu: 0,
-      salehari: "",
-      omzetweek: "",
+      salehari: "0",
+      omzetweek: "0",
     };
   },
   computed: {
@@ -124,15 +124,19 @@ export default {
           let hjHari = 0;
           let hjWeek = 0;
           let saleweek = 0;
-          for(const tgl in data) {
+          for(const tgl in data) {  
             if(tgl === date) {
               for(const stok1 in data[tgl]) {
                 let stk = parseInt(stok1, 10);
                   stokharionly += stk;  
                   hjHari += parseInt(data[tgl][stok1], 10);
-                  this.salehari = hjHari.toLocaleString();
+                  if(hjHari !== 0) {
+                    this.salehari = hjHari.toLocaleString();
+                  }
               }
-              this.stoktoday = stokharionly;
+              if(stokharionly !== 0) {
+                this.stoktoday = stokharionly.toLocaleString();
+              }
             }
             for(const stok in data[tgl]) {
               let stk = parseInt(stok, 10);
@@ -140,17 +144,21 @@ export default {
               hjWeek += parseInt(data[tgl][stok]);
               // console.log(stokHari);
             }
-            // console.log(tgl, date);
             saleweek = hjWeek;
             stkMinggu = stokHari;
           }
-          this.omzetweek = saleweek.toLocaleString();
-          this.stokminggu = stkMinggu;
+          if(saleweek !== 0) {
+            this.omzetweek = saleweek.toLocaleString();
+          }
+          if(stkMinggu !== 0) {
+            this.stokminggu = stkMinggu.toLocaleString();
+          }
         })
     }
   },
   mounted() {
     this.getData();
+    localStorage.removeItem('table');
   }
 };
 </script>

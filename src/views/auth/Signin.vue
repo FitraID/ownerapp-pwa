@@ -32,8 +32,7 @@
                       name="password"
                       v-model="password"
                     />
-                    <input class="form-check-input mt-2 text-success" type="checkbox" value="" id="chkRemem">
-                    <label for="chkRemem" class="mt-1 ms-1">Ingat login Sayaa</label>
+                    <div class="container m-0 p-0 bg-danger text-center text-light fs-5" id="falseUser" style="display: none;" >Password atau No Hp Salah</div> 
                   </div>
                   <div class="text-center">
                     <button type="submit" class="btn btn-primarys btn-block">
@@ -68,6 +67,8 @@ export default {
       formdata.append("nomor_hp", this.nohp);
       formdata.append("password", this.password);
 
+      const unauthorized = document.getElementById("falseUser");
+
       if(this.nohp === "" || this.password === "") {
         alert("Lengkapi Form");
       }
@@ -78,7 +79,7 @@ export default {
         })
         .then(function(response) {
           if(response.status === 401 || response.status === 500) {
-            router.push("/")
+            unauthorized.style.display = "block";
           }
           else {
             return response.json();
@@ -96,7 +97,8 @@ export default {
           }
         });
         }
-      }
+    }
   },
 };
+
 </script>
