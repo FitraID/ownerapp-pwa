@@ -114,6 +114,7 @@ export default {
       );
     },
     getData() {
+      localStorage.removeItem('table');
       fetch(`${this.url}owner/home?access_token=${localStorage.getItem('access_token')}`, {method: "GET"})
         .then(response => response.json())
         .then(data => {
@@ -157,7 +158,6 @@ export default {
     }
   },
   mounted() {
-    localStorage.removeItem('table');
     this.getData();
   }
 };

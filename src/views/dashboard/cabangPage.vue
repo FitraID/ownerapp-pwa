@@ -164,6 +164,7 @@
               this.stokminggu = stkMinggu.toLocaleString();
             }
           })
+          localStorage.removeItem('table');
       }
     },
     mounted() {

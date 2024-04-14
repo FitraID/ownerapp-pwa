@@ -4,7 +4,7 @@
       <div class="container h-100">
         <div class="row justify-content-center h-100 align-items-center">
           <div class="col-xl-5 col-md-6">
-            <auth-header :title="'Masuk Ke Cinta Bunda'" />
+            <auth-header :title="'Masuk Ke Cinta Bunda Owner App'" />
             <div class="auth-form card">
               <div class="card-body">
                 <form

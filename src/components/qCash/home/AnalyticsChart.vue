@@ -66,11 +66,10 @@ export default {
   methods: {
     getHomeList() {
       let urlAll = "";
-
+      
       console.log(localStorage.getItem('table'));
-
-      if(localStorage.getItem('table') === null) {
-        urlAll = `${this.url}owner/home?access_token=${localStorage.getItem('access_token')}`
+      if(localStorage.getItem('table') === null || localStorage.getItem('table') === "") {
+        urlAll = `${this.url}owner/home?access_token=${localStorage.getItem('access_token')}`;
       }
       else {
         urlAll = `${this.url}owner/laporan?access_token=${localStorage.getItem('access_token')}&database=${localStorage.getItem('table')}`;
