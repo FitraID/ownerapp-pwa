@@ -157,8 +157,8 @@ export default {
     }
   },
   mounted() {
-    this.getData();
     localStorage.removeItem('table');
+    this.getData();
   }
 };
 </script>
