@@ -88,7 +88,7 @@
   </template>
   <script>
   import AnalyticsChart from "../../components/qCash/home/AnalyticsChart.vue";
-  import tableTop from "../../components/qCash/home/tableList.vue"
+  import tableTop from "../../components/qCash/home/GudangList.vue"
   import Layout from "../../components/qCash/Layout";
   
   export default {
@@ -137,9 +137,9 @@
             for(const tgl in data) {  
               if(tgl === date) {
                 for(const stok1 in data[tgl]) {
-                  let stk = parseInt(stok1, 10);
+                  let stk = parseInt(data[tgl][stok1].stok, 10);
                     stokharionly += stk;  
-                    hjHari += parseInt(data[tgl][stok1], 10);
+                    hjHari += parseInt(data[tgl][stok1].total, 10);
                     if(hjHari !== 0) {
                       this.salehari = hjHari.toLocaleString();
                     }
@@ -149,9 +149,9 @@
                 }
               }
               for(const stok in data[tgl]) {
-                let stk = parseInt(stok, 10);
+                let stk = parseInt(data[tgl][stok].stok, 10);
                 stokHari += stk;
-                hjWeek += parseInt(data[tgl][stok]);
+                hjWeek += parseInt(data[tgl][stok].total);
                 // console.log(stokHari);
               }
               saleweek = hjWeek;

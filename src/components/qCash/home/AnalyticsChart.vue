@@ -85,7 +85,8 @@ export default {
           for(const date in data) {
             let totalStok = 0;
             for(const index in data[date]) {
-                let num = parseInt(index, 10)
+
+                let num = parseInt(data[date][index].stok, 10)
                 totalStok += num;
             }
 
