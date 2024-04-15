@@ -62,21 +62,11 @@
             <div class="col-xxl-8 col-xl-8">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Top 10 Barang Semua Cabangs</h4>
+                  <h4 class="card-title">Riwayat Distribusi <span class="text-success">barang dari Gudang</span> </h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive transaction-table">
-                    <table class="table table-striped responsive-table" id="tableTop">
-                      <thead>
-                        <tr>
-                          <th>No</th>
-                          <th>Barcode</th>
-                          <th>Nama</th>
-                          <th>Jumlah</th>
-                        </tr>
-                      </thead>
                       <table-top/>
-                    </table>
                   </div>
                 </div>
               </div>
@@ -122,11 +112,10 @@
         );
       },
       getData() {
-        this.namaCabangs = localStorage.getItem('namaCB');
+        this.namaCabangs = localStorage.getItem('namaCB');  
         fetch(`${this.url}owner/laporan?access_token=${localStorage.getItem('access_token')}&database=${localStorage.getItem('table')}`, {method: "GET"})
           .then(response => response.json())
           .then(data => {
-            console.log(data);
             const date = new Date().toISOString().split('T')[0];
             let stokHari = 0;
             let stkMinggu = 0;

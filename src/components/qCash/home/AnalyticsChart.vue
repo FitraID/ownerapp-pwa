@@ -67,7 +67,6 @@ export default {
     getHomeList() {
       let urlAll = "";
       
-      console.log(localStorage.getItem('table'));
       if(localStorage.getItem('table') === null || localStorage.getItem('table') === "") {
         urlAll = `${this.url}owner/home?access_token=${localStorage.getItem('access_token')}`;
       }

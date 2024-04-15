@@ -97,8 +97,14 @@ export default {
           }
         });
         }
+    },
+    clearLog() {
+      localStorage.clear();
     }
   },
+  mounted() {
+    this.clearLog();
+  }
 };
 
 </script>
